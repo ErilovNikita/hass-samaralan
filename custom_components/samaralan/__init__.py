@@ -11,7 +11,7 @@ PLATFORMS: list[str] = ["sensor", "binary_sensor"]
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     #Создать объект с подключением к сервису
-    sst1 = sst.SST(hass, entry.data["username"], entry.data["password"])
+    sst1 = sst.SST(hass)
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = sst1
     await hass.async_add_executor_job(
         sst1.pull_data
