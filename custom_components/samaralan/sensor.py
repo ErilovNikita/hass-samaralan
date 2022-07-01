@@ -11,7 +11,6 @@ from . import sst
 import logging
 _LOGGER = logging.getLogger(__name__)
 
-
 async def async_setup_entry(hass, config_entry, async_add_entities):
     sst1 = hass.data[DOMAIN][config_entry.entry_id]
     new_devices = []
@@ -29,16 +28,16 @@ class sensorBalance(Entity):
     _attr_device_class = SensorDeviceClass.NONE
     _attr_state_class = SensorStateClass.NONE
 
-    def __init__(self, wirelessLeakSensor, module):
-        self._sensor = wirelessLeakSensor
+    def __init__(self, samaraLan, module):
+        self._sensor = samaraLan
         self._module = module
 
         # Уникальный идентификатор
         self._attr_unique_id = f"{DOMAIN}_balance"
 
         # Отображаемое имя
-        self._attr_name = f"{DOMAIN} - Баланс"
-        
+        self._attr_name = f"Баланс"
+
         # Текущее значение
         self._state = self._sensor.get_balance
 
