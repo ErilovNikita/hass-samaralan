@@ -1,10 +1,7 @@
 # СамараЛан для Home Assistant
  [![Лицензия](https://img.shields.io/badge/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![hacs_badge](https://img.shields.io/badge/HACS-Default-green.svg)](https://github.com/custom-components/hacs)
 
-Данная интеграция предоставляет возможность системе HomeAssistant опрашивать API Мособлгаза.
-
-## Скриншоты
-[<img alt="ALT" src="SRC" height="240">](LINK.png)
+Данная интеграция предоставляет возможность системе HomeAssistant опрашивать сайт СамараЛан.
 
 ## Установка
 
