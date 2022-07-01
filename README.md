@@ -19,7 +19,7 @@ mv hass-samaralan/custom_components/samaralan /mnt/homeassistant/config/custom_c
 ## Конфигурация
 ### Через интерфейс Home Assistant
 
-[![​Open your Home Assistant instance and start setting up a new integration.​](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=mosoblgaz)
+[![​Open your Home Assistant instance and start setting up a new integration.​](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=samaralan)
 
 1. Откройте `Настройки` -> `Интеграции`
 1. Нажмите внизу справа страницы кнопку с плюсом
