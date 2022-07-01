@@ -26,14 +26,14 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     CONNECTION_CLASS = config_entries.CONN_CLASS_CLOUD_POLL
 
-    async def async_step_user(self, user_input=None):
+    async def async_step_user(self, RouterIP=None):
 
         errors = {}
-        if user_input is not None:
+        if RouterIP is not None:
             try:
-                info = await validate_input(self.hass, user_input)
+                info = await validate_input(self.hass, RouterIP)
 
-                return self.async_create_entry(title=info["title"], data=user_input)
+                return self.async_create_entry(title=info["title"], data=RouterIP)
             except InvalidRouterIP:
                 errors["RouterIP"] = "invalid_router_ip"
 
@@ -45,7 +45,3 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
 class InvalidRouterIP(exceptions.HomeAssistantError):
     """Error to indicate we cannot connect."""
-
-
-class InvalidPassword(exceptions.HomeAssistantError):
-    """Error to indicate there is an invalid hostname."""

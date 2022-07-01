@@ -15,8 +15,8 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(hass, config_entry, async_add_entities):
     sst1 = hass.data[DOMAIN][config_entry.entry_id]
     new_devices = []
-    #Создать все сенсоры
 
+    #Создать все сенсоры
     for module in sst1.devices:
         for wSensor in module.samaraLan:
             new_devices.append(sensorBalance(wSensor, module))
@@ -32,10 +32,13 @@ class sensorBalance(Entity):
     def __init__(self, wirelessLeakSensor, module):
         self._sensor = wirelessLeakSensor
         self._module = module
+
         # Уникальный идентификатор
         self._attr_unique_id = f"{DOMAIN}_balance"
+
         # Отображаемое имя
         self._attr_name = f"{DOMAIN} - Баланс"
+        
         # Текущее значение
         self._state = self._sensor.get_balance
 
