@@ -6,7 +6,7 @@ from typing import Any
 import voluptuous as vol
 from homeassistant import config_entries, exceptions
 from homeassistant.core import HomeAssistant
-from .const import DOMAIN  # pylint:disable=unused-import
+from .const import DOMAIN
 from .sst import SST
 
 _LOGGER = logging.getLogger(__name__)
@@ -23,21 +23,19 @@ async def validate_input(hass: HomeAssistant, data: dict) -> dict[str, Any]:
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
-
     CONNECTION_CLASS = config_entries.CONN_CLASS_CLOUD_POLL
 
-    async def async_step_user(self, RouterIP=None):
+    async def async_step_user(self, router_ip = None):
 
         errors = {}
-        if RouterIP is not None:
+        if router_ip is not None:
             try:
-                info = await validate_input(self.hass, RouterIP)
+                info = await validate_input(self.hass, router_ip)
+                return self.async_create_entry(title=info["title"], data=router_ip)
 
-                return self.async_create_entry(title=info["title"], data=RouterIP)
             except InvalidRouterIP:
                 errors["RouterIP"] = "invalid_router_ip"
 
-        # If there is no user input or there were errors, show the form again, including any errors that were found with the input.
         return self.async_show_form(
             step_id="RouterIP", data_schema=DATA_SCHEMA, errors=errors
         )
