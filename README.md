@@ -11,7 +11,7 @@
 репозитория в папку `custom_components` внутри папки конфигурации Home Assistant.
 Пример (при условии, что конфигурация Home Assistant доступна по адресу `/mnt/homeassistant/config`) для Unix-систем:
 ```
-git clone https://github.com/minitwiks/hass-samaralan.git
+git clone https://github.com/ErilovNikita/hass-samaralan.git
 mkdir -p /mnt/homeassistant/config/custom_components
 mv hass-samaralan/custom_components/samaralan /mnt/homeassistant/config/custom_components
 ```
