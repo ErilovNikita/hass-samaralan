@@ -30,9 +30,5 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except InvalidRouterIP:
                 errors["RouterIP"] = "invalid_router_ip"
 
-        return self.async_show_form(
-            step_id="RouterIP", data_schema=DATA_SCHEMA, errors=errors
-        )
-
 class InvalidRouterIP(exceptions.HomeAssistantError):
     """Error to indicate we cannot connect."""
