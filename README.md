@@ -13,7 +13,7 @@
 ```
 git clone https://github.com/ErilovNikita/hass-samaralan.git
 mkdir -p /mnt/homeassistant/config/custom_components
-mv hass-samaralan/custom_components/samaralan /mnt/homeassistant/config/custom_components
+mv hass-samaralan/custom_components/samaralan /config/custom_components
 ```
 
 ## Конфигурация
